@@ -15,6 +15,11 @@
     <ClInclude Include="libs\overlay\Overlay.h" />
     <ClInclude Include="Pch\Pch.h" />
     <ClInclude Include="src\Driver\Rpm.h" />
+    <ClInclude Include="src\Features\Visuals\Esp\Esp.h" />
+    <ClInclude Include="src\GetEntities\Entities.h" />
+    <ClInclude Include="src\GetEntities\EntityCaching.h" />
+    <ClInclude Include="src\GetEntities\Prefabs\Prefabs.h" />
+    <ClInclude Include="src\Threading\Threading.h" />
     <ClInclude Include="src\Menu\Menu.h" />
     <ClInclude Include="src\Offsets\Offsets.h" />
     <ClInclude Include="Il2Cpp\Decryptions\decryption.h" />
@@ -26,6 +31,8 @@
     <ClInclude Include="libs\imgui\imstb_rectpack.h" />
     <ClInclude Include="libs\imgui\imstb_textedit.h" />
     <ClInclude Include="libs\imgui\imstb_truetype.h" />
+    <ClInclude Include="src\World2Screen\Math\Math.h" />
+    <ClInclude Include="src\World2Screen\World2Screen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libs\overlay\Overlay.cpp" />
@@ -33,6 +40,10 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Driver\Rpm.cpp" />
+    <ClCompile Include="src\Features\Visuals\Esp\Esp.cpp" />
+    <ClCompile Include="src\GetEntities\Entities.cpp" />
+    <ClCompile Include="src\GetEntities\EntityCaching.cpp" />
+    <ClCompile Include="src\GetEntities\Prefabs\Prefabs.cpp" />
     <ClCompile Include="src\Main\Main.cpp" />
     <ClCompile Include="Il2Cpp\GcHandle\il2cpp.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -75,6 +86,7 @@
       </ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="src\Menu\Menu.cpp" />
+    <ClCompile Include="src\World2Screen\World2Screen.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

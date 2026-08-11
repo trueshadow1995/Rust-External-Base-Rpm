@@ -1,7 +1,7 @@
 #pragma once
+#include <Windows.h>
 #include <Psapi.h>
 #include <TlHelp32.h>
-#include <Windows.h>
 
 #include <cstdint>
 #include <string>
@@ -58,6 +58,7 @@ public:
   double ReadDouble(uint64_t address);
 
   std::vector<uint8_t> ReadBytes(uint64_t address, size_t size);
+  bool ReadBytesInto(uint64_t address, void *buffer, size_t size);
   std::string ReadString(uint64_t address, size_t maxLength = 256);
   std::wstring ReadWString(uint64_t address, size_t maxLength = 256);
 
@@ -117,7 +118,7 @@ public:
 };
 
 // Global instance
-extern Memory *g_Memory;
+extern Memory *Driver;
 
 // Template implementations
 template <typename T> T Memory::Read(uint64_t address) {

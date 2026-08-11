@@ -1,28 +1,26 @@
 #include "Menu.h"
 #include "../Driver/Rpm.h"
+#include "../Features/Visuals/Esp/Esp.h"
 #include "Pch.h"
 
 extern uint64_t g_gameBase;
 extern uint64_t g_unityBase;
-extern Memory *g_Memory;
+extern Memory *Driver;
 
 namespace menu {
 void Render() {
   ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_FirstUseEver);
   ImGui::Begin("Rust Base RPM");
 
-  ImGui::Text("Status: %s", (g_Memory && g_Memory->IsAttached())
-                                ? "Attached"
-                                : "Not Attached");
-  ImGui::Separator();
+  ImGui::Text("ESP");
+  ImGui::Checkbox("Players", &esp::players);
 
-  if (g_Memory && g_Memory->IsAttached()) {
-    ImGui::Text("PID: %u", g_Memory->GetProcessId());
-    ImGui::Text("GameAssembly.dll: 0x%llX", g_gameBase);
-    ImGui::Text("UnityPlayer.dll:  0x%llX", g_unityBase);
-  } else {
-    ImGui::Text("Waiting for game...");
-  }
+  ImGui::Dummy(ImVec2(0, 10));
+  ImGui::Dummy(ImVec2(0, 10));
+  ImGui::Dummy(ImVec2(0, 10));
+
+  ImGui::Text("Resources");
+  ImGui::Checkbox("Resources", &esp::resources);
 
   ImGui::End();
 }

@@ -1,7 +1,7 @@
 #include "Rpm.h"
 //thanks cloudy
 
-Memory *g_Memory = nullptr;
+Memory *Driver = nullptr;
 
 Memory::Memory()
     : m_processHandle(nullptr), m_processId(0), m_isAttached(false) {
@@ -275,6 +275,13 @@ std::vector<uint8_t> Memory::ReadBytes(uint64_t address, size_t size) {
   return std::vector<uint8_t>();
 }
 
+bool Memory::ReadBytesInto(uint64_t address, void *buffer, size_t size) {
+  SIZE_T bytesRead = 0;
+  return ReadProcessMemory(m_processHandle, (LPCVOID)address, buffer, size,
+                           &bytesRead) &&
+         bytesRead == size;
+}
+
 bool Memory::WriteBytes(uint64_t address, const std::vector<uint8_t> &bytes) {
   SIZE_T bytesWritten;
   return WriteProcessMemory(m_processHandle, (LPVOID)address, bytes.data(),
@@ -340,19 +347,20 @@ uint64_t Memory::ReadPointer(uint64_t address) {
 
 uint64_t Memory::FollowPointerPath(uint64_t baseAddress,
                                    const std::vector<uint64_t> &offsets) {
+  if (offsets.empty())
+    return baseAddress;
+
+  // For a chain {a, b, c} we want [[[base+a]+b]+c]. Deref each intermediate
+  // (base+a), (that+b), then return the FINAL address (that+c) so the caller
+  // decides whether to Read/Write it. Adding the offset first (instead of
+  // dereferencing first) is the fix vs. the old version.
   uint64_t address = baseAddress;
-
-  for (size_t i = 0; i < offsets.size(); i++) {
-    address = ReadPointer(address);
-
-    if (address == 0) {
+  for (size_t i = 0; i + 1 < offsets.size(); i++) {
+    address = ReadPointer(address + offsets[i]);
+    if (address == 0)
       return 0;
-    }
-
-    address += offsets[i];
   }
-
-  return address;
+  return address + offsets.back();
 }
 
 bool Memory::ChangeProtection(uint64_t address, size_t size,

@@ -2,7 +2,7 @@
 #include "../src/offsets/Offsets.h"
 #include "../../src/Driver/Rpm.h"
 
-extern Memory* g_Memory;
+extern Memory* Driver;
 
 namespace Decryption {
 
@@ -25,7 +25,7 @@ uint64_t cl_active_item(uint64_t encrypted) {
 
 uintptr_t decrypt_client_entities(uintptr_t address,
                                   uintptr_t gameAssemblyBase) {
-  uint64_t value = g_Memory->Read<uint64_t>(address + 0x18);
+  uint64_t value = Driver->Read<uint64_t>(address + 0x18);
   if (!value)
     return 0;
 
@@ -46,7 +46,7 @@ uintptr_t decrypt_client_entities(uintptr_t address,
 // auto generated decrypt: entity_list
 
 uintptr_t decrypt_entity_list(uintptr_t address, uintptr_t gameAssemblyBase) {
-  uint64_t value = g_Memory->Read<uint64_t>(address + 0x18);
+  uint64_t value = Driver->Read<uint64_t>(address + 0x18);
   if (!value)
     return 0;
 
@@ -67,7 +67,7 @@ uintptr_t decrypt_entity_list(uintptr_t address, uintptr_t gameAssemblyBase) {
 // auto generated decrypt: player_
 
 uintptr_t decrypt_player_eyes(uintptr_t address, uintptr_t gameAssemblyBase) {
-  uint64_t value = g_Memory->Read<uint64_t>(address + 0x18);
+  uint64_t value = Driver->Read<uint64_t>(address + 0x18);
   if (!value)
     return 0;
 
@@ -86,7 +86,7 @@ uintptr_t decrypt_player_eyes(uintptr_t address, uintptr_t gameAssemblyBase) {
 
 uintptr_t DecryptPlayerInventory(uintptr_t address,
                                  uintptr_t gameAssemblyBase) {
-  uint64_t value = g_Memory->Read<uint64_t>(address + 0x18);
+  uint64_t value = Driver->Read<uint64_t>(address + 0x18);
   if (!value)
     return 0;
 

@@ -2,7 +2,7 @@
 #include "../../src/Driver/Rpm.h"
 #include <cstdint>
 
-extern Memory* g_Memory;
+extern Memory* Driver;
 
 namespace Il2CppHandle {
 
@@ -26,24 +26,24 @@ uintptr_t Il2cppGetHandle(uint64_t ObjectHandleID, uintptr_t gameAssemblyBase) {
 
   uint64_t page_base = ObjectHandleID & 0xFFFFFFFFFFFFE000ULL;
 
-  uint8_t type = g_Memory->Read<uint8_t>(page_base + 0x20);
+  uint8_t type = Driver->Read<uint8_t>(page_base + 0x20);
   if (type >= 4)
     return 0;
 
   int64_t slot = (int64_t)(ObjectHandleID - page_base - 0x28) >> 3;
 
-  uint32_t size = g_Memory->Read<uint32_t>(page_base + 0x1C);
+  uint32_t size = Driver->Read<uint32_t>(page_base + 0x1C);
   if ((uint32_t)slot >= size)
     return 0;
 
-  uint64_t bitmap_ptr = g_Memory->Read<uint64_t>(page_base + 0x10);
+  uint64_t bitmap_ptr = Driver->Read<uint64_t>(page_base + 0x10);
   uint32_t bitmask =
-      g_Memory->Read<uint32_t>(bitmap_ptr + 4 * ((uint32_t)slot >> 5));
+      Driver->Read<uint32_t>(bitmap_ptr + 4 * ((uint32_t)slot >> 5));
   if (!((bitmask >> (slot & 0x1F)) & 1))
     return 0;
 
   uint64_t entry =
-      g_Memory->Read<uint64_t>(page_base + 8 * ((uint32_t)slot + 5));
+      Driver->Read<uint64_t>(page_base + 8 * ((uint32_t)slot + 5));
 
   if (type > 1)
     return (uintptr_t)entry;
