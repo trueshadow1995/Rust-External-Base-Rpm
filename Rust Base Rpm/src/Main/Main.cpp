@@ -76,10 +76,13 @@ static void Loop() {
     if (!overlay->begin_frame())
       continue;
 
+
     esp::Render();
 
     if (overlay->menu_open)
       menu::Render();
+
+
 
     overlay->end_frame();
   }

@@ -10,7 +10,7 @@ extern uint64_t g_gameBase;
 BaseNetworkable::BaseNetworkable(uintptr_t gameAssembly)
     : gameAssemblyBase(gameAssembly), m_entitiesPtr(0), m_localPlayer(0),
       m_lastEntitiesPtr(0) {
-  m_worker.Start([this] { Tick(); }, std::chrono::milliseconds(500));
+  m_worker.Start([this] { Tick(); }, std::chrono::milliseconds(0));
   printf("[+] Entity Thread started\n");
 }
 uintptr_t BaseNetworkable::GetInstance() {

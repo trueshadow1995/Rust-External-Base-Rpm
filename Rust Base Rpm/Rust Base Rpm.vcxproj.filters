@@ -75,6 +75,15 @@
     <ClInclude Include="src\Threading\Threading.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Features\Visuals\Esp\Esp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GetEntities\EntityCaching.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GetEntities\Prefabs\Prefabs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main\Main.cpp">
@@ -122,7 +131,16 @@
     <ClCompile Include="src\GetEntities\Entities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Threading\Threading.cpp">
+    <ClCompile Include="src\Features\Visuals\Esp\Esp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GetEntities\EntityCaching.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GetEntities\Prefabs\Prefabs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

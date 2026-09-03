@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libs\overlay\Overlay.cpp" />
+    <ClCompile Include="Lol.cpp" />
     <ClCompile Include="Pch\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
