@@ -105,7 +105,7 @@ int main() {
     // start our loop with our "feature logic"
     Loop();
 
-    // delete all of our objects
+    // delete heap allocated objects
     delete g_entities;
     delete overlay;
     delete Driver;
