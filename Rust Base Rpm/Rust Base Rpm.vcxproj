@@ -11,9 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Il2Cpp\GcHandle\il2cpp.h" />
-    <ClInclude Include="libs\overlay\Overlay.h" />
-    <ClInclude Include="Pch\Pch.h" />
+    <ClInclude Include="src\Il2Cpp\Decryptions\decryption.h" />
+    <ClInclude Include="src\Il2Cpp\GcHandle\il2cpp.h" />
+    <ClInclude Include="src\libs\imgui\imconfig.h" />
+    <ClInclude Include="src\libs\imgui\imgui.h" />
+    <ClInclude Include="src\libs\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="src\libs\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="src\libs\imgui\imgui_internal.h" />
+    <ClInclude Include="src\libs\imgui\imstb_rectpack.h" />
+    <ClInclude Include="src\libs\imgui\imstb_textedit.h" />
+    <ClInclude Include="src\libs\imgui\imstb_truetype.h" />
+    <ClInclude Include="src\libs\overlay\Overlay.h" />
+    <ClInclude Include="src\Pch\Pch.h" />
     <ClInclude Include="src\Driver\Rpm.h" />
     <ClInclude Include="src\Features\Visuals\Esp\Esp.h" />
     <ClInclude Include="src\GetEntities\Entities.h" />
@@ -22,23 +31,57 @@
     <ClInclude Include="src\Threading\Threading.h" />
     <ClInclude Include="src\Menu\Menu.h" />
     <ClInclude Include="src\Offsets\Offsets.h" />
-    <ClInclude Include="Il2Cpp\Decryptions\decryption.h" />
-    <ClInclude Include="libs\imgui\imconfig.h" />
-    <ClInclude Include="libs\imgui\imgui.h" />
-    <ClInclude Include="libs\imgui\imgui_impl_dx11.h" />
-    <ClInclude Include="libs\imgui\imgui_impl_win32.h" />
-    <ClInclude Include="libs\imgui\imgui_internal.h" />
-    <ClInclude Include="libs\imgui\imstb_rectpack.h" />
-    <ClInclude Include="libs\imgui\imstb_textedit.h" />
-    <ClInclude Include="libs\imgui\imstb_truetype.h" />
     <ClInclude Include="src\World2Screen\Math\Math.h" />
     <ClInclude Include="src\World2Screen\World2Screen.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="libs\overlay\Overlay.cpp" />
-    <ClCompile Include="Lol.cpp" />
-    <ClCompile Include="Pch\Pch.cpp">
+    <ClCompile Include="src\Pch\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Il2Cpp\Decryptions\decryption.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\Il2Cpp\GcHandle\il2cpp.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\libs\imgui\imgui.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\libs\imgui\imgui_draw.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\libs\imgui\imgui_tables.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\libs\imgui\imgui_widgets.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\libs\imgui\imgui_impl_dx11.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\libs\imgui\imgui_impl_win32.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="src\libs\overlay\Overlay.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="src\Driver\Rpm.cpp" />
     <ClCompile Include="src\Features\Visuals\Esp\Esp.cpp" />
@@ -46,46 +89,6 @@
     <ClCompile Include="src\GetEntities\EntityCaching.cpp" />
     <ClCompile Include="src\GetEntities\Prefabs\Prefabs.cpp" />
     <ClCompile Include="src\Main\Main.cpp" />
-    <ClCompile Include="Il2Cpp\GcHandle\il2cpp.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
-    <ClCompile Include="Il2Cpp\Decryptions\decryption.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
-    <ClCompile Include="libs\imgui\imgui.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
-    <ClCompile Include="libs\imgui\imgui_draw.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
-    <ClCompile Include="libs\imgui\imgui_tables.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
-    <ClCompile Include="libs\imgui\imgui_widgets.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
-    <ClCompile Include="libs\imgui\imgui_impl_dx11.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
-    <ClCompile Include="libs\imgui\imgui_impl_win32.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-    </ClCompile>
     <ClCompile Include="src\Menu\Menu.cpp" />
     <ClCompile Include="src\World2Screen\World2Screen.cpp" />
   </ItemGroup>
@@ -132,7 +135,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>Pch.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(ProjectDir)Pch;$(ProjectDir)src;$(ProjectDir)Il2Cpp;$(ProjectDir)libs\imgui;$(ProjectDir)libs\overlay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\Pch;$(ProjectDir)src;$(ProjectDir)src\Il2Cpp;$(ProjectDir)src\libs\imgui;$(ProjectDir)src\libs\overlay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,7 +158,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>Pch.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(ProjectDir)Pch;$(ProjectDir)src;$(ProjectDir)Il2Cpp;$(ProjectDir)libs\imgui;$(ProjectDir)libs\overlay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\Pch;$(ProjectDir)src;$(ProjectDir)src\Il2Cpp;$(ProjectDir)src\libs\imgui;$(ProjectDir)src\libs\overlay;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

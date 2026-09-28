@@ -19,4 +19,4 @@ uintptr_t DecryptPlayerInventory(uintptr_t address, uintptr_t gameAssemblyBase);
 uint32_t encrypt_fov(uint32_t val);
 uint32_t decrypt_fov(uint32_t val);
 
-} // namespace Decryption
+}  // namespace Decryption

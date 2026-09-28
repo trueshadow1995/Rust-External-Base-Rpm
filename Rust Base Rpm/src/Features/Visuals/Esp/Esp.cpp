@@ -1,9 +1,9 @@
 #include "Esp.h"
-#include "../../../../libs/imgui/imgui.h"
-#include "../../../../libs/overlay/Overlay.h"
+#include "libs/overlay/Overlay.h"
 #include "../../../GetEntities/Entities.h"
 #include "../../../GetEntities/Prefabs/Prefabs.h"
 #include "../../../World2Screen/World2Screen.h"
+
 
 extern BaseNetworkable *g_entities;
 
@@ -80,7 +80,7 @@ void Render() {
       continue;
     }
 
-    //Resources: just a label
+    //Resources just a label
     Vector2 screen;
     if (!W2S::WorldToScreen(e.position, screen))
       continue;

@@ -27,7 +27,7 @@ class PollingThread {
     });
   }
 
-  // New method to change the interval while running
+ 
   void SetInterval(std::chrono::milliseconds new_interval) {
     m_interval.store(new_interval, std::memory_order_release);
   }

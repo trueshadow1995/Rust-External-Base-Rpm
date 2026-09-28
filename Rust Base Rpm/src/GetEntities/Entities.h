@@ -46,7 +46,6 @@ private:
   std::string GetObjectClassName(uintptr_t entity);
 
   uint32_t GetPrefabID(uintptr_t entity);
-  uint32_t GetTeamID(uintptr_t entity);
   Vector3 GetPosition(uintptr_t entity);
 
   uintptr_t gameAssemblyBase;
